@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @portofolio_item %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @portofolio_item.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @portofolio_item.body %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@portofolio_item) %> |
+<%= link_to 'Back', blogs_path %>

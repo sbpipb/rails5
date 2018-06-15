@@ -1,9 +1,12 @@
 <h1>Portofolio Items</h1>
 
+<%= link_to "Create new Item", new_portofolio_path %>
 
 <% @portofolio_items.each do |portofolio| %>
-  <p><%= portofolio.title %></p>
+  <p><%= link_to portofolio.item.title, portofolio_path(portofolio) %> </p>
+  <h1><%= portofolio.title %></h1>
   <p><%= portofolio.subtitle %></p>
   <p><%= portofolio.body %></p>
   <%= image_tag portofolio.thumb_image if portofolio.thumb_image.present? %>
+  <%= link_to "Edit", edit_portofolio_path(portofolio.id) %>
 <% end %>

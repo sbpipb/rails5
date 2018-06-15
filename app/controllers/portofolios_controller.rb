@@ -1,6 +1,6 @@
 class PortofoliosController < ApplicationController
 
-  before_action :find_portofolio, only: [:update]
+  before_action :find_portofolio, only: [:update, :edit, :show]
 
   def index
     @portofolio_items = Portofolio.all
@@ -25,17 +25,21 @@ class PortofoliosController < ApplicationController
 
 
   def edit
-    @portofolio_item = Portofolio.find(params[:id])
+    # @portofolio_item = Portofolio.find(params[:id])
+  end
+
+  def show
+    # @portofolio_item = Portofolio.find(params[:id])
   end
 
   def update
     respond_to do |format|
-      if @portofolio.update(create_params)
+      if @portofolio_item.update(create_params)
         format.html { redirect_to portofolios_path, notice: 'Blog was successfully updated.' }
         # format.json { render :show, status: :ok, location: @portofolio }
       else
         format.html { render :edit }
-        format.json { render json: @portofolio.errors, status: :unprocessable_entity }
+        format.json { render json: @portofolio_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,7 +47,7 @@ class PortofoliosController < ApplicationController
   private
 
   def find_portofolio
-    @portofolio = Portofolio.find(params[:id])
+    @portofolio_item = Portofolio.find(params[:id])
   end
 
   def create_params
