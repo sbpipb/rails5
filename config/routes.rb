@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'pages/contact'
   resources :blogs
 
+  root to: 'pages#home'
+
   # get '/', to: 'pages#about', as: 'about_me'
 
 

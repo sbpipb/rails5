@@ -1,12 +1,15 @@
-<h1>Portofolio Items</h1>
+<h1>My Portofolio</h1>
 
-<%= link_to "Create new Item", new_portofolio_path %>
-
+<%= link_to "Add new Item", new_portofolio_path %>
+<hr />
 <% @portofolio_items.each do |portofolio| %>
-  <p><%= link_to portofolio.item.title, portofolio_path(portofolio) %> </p>
-  <h1><%= portofolio.title %></h1>
-  <p><%= portofolio.subtitle %></p>
-  <p><%= portofolio.body %></p>
-  <%= image_tag portofolio.thumb_image if portofolio.thumb_image.present? %>
-  <%= link_to "Edit", edit_portofolio_path(portofolio.id) %>
+  <div>
+    <h1><%= link_to portofolio.title, portofolio_path(portofolio) %> </h1>
+    <p><%= portofolio.subtitle %></p>
+    <p><%= portofolio.body %></p>
+    <%= image_tag portofolio.thumb_image if portofolio.thumb_image.present? %>
+    <%= link_to "Edit", edit_portofolio_path(portofolio.id) %>
+    <%= link_to "Delete", portofolio_path(portofolio.id), method: :delete, data: { confirm: 'Are you sure?'} %>
+  </div>
+  <hr />
 <% end %>

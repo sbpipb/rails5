@@ -1,6 +1,6 @@
 class PortofoliosController < ApplicationController
 
-  before_action :find_portofolio, only: [:update, :edit, :show]
+  before_action :find_portofolio, only: [:update, :edit, :show, :destroy]
 
   def index
     @portofolio_items = Portofolio.all
@@ -23,6 +23,14 @@ class PortofoliosController < ApplicationController
     @portofolio_item = Portofolio.new
   end
 
+  def destroy
+
+    @portofolio_item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to portofolios_url, notice: 'Portofolio was successfully destroyed.' }
+    end
+  end
 
   def edit
     # @portofolio_item = Portofolio.find(params[:id])
