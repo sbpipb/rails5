@@ -15,11 +15,9 @@ end
 10.times do |blog|
     Blog.create!(
         title: "Blog Post #{blog}",
-        body: "Lorem lorem lorem lorem"
+        body: "Lorem lorem lorem lorem",
+        topic_id: Topic.last.id
     )
-
-
-
 end
 
 
@@ -45,3 +43,12 @@ end
         thumb_image: "http://via.placeholder.com/350x200"
     )
 end
+
+
+3.times do |technology|
+  Portofolio.last.technologies.create!(
+    name: "Technology #{technology}"
+  )
+end
+
+puts "3 technologies created"
