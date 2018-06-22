@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+3.times do |topic|
+  Topic.create!(
+    title: "Topic #{topic}"
+  )
+end
 
 10.times do |blog|
     Blog.create!(
@@ -26,7 +31,7 @@ puts "10 blog posts created"
     percent_utilized: 15
 
     )
-end 
+end
 
 
 
