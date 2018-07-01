@@ -1,4 +1,4 @@
-<h1>Homepage</h1>
+<h1>Hi, <%= current_user.first_name if current_user.present? %> Homepage</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
 Blogs
@@ -6,3 +6,4 @@ Blogs
 
 Skills
 <%= @skills.inspect %>
+00
