@@ -61,7 +61,9 @@ class PortofoliosController < ApplicationController
   end
 
   def create_params
-    params.require(:portofolio).permit(:title, :subtitle, :body,
-       technologies_attributes: [:name])
+    params.require(:portofolio).permit(:title,
+                                       :subtitle,
+                                       :body,
+                                       technologies_attributes: [:name])
   end
 end
