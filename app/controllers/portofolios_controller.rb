@@ -1,7 +1,7 @@
 class PortofoliosController < ApplicationController
 
   before_action :find_portofolio, only: [:update, :edit, :show, :destroy]
-
+  layout 'portofolio'
   def index
     @portofolio_items = Portofolio.all
     # return render: json: @portofolios
